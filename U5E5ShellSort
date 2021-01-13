@@ -1,0 +1,49 @@
+package u5e5.shellsort;
+import java.util.ArrayList;
+import java.util.List;
+
+public class U5E5ShellSort {
+    
+    public static void main(String[] args) {
+        List <Integer> ALista= new ArrayList <Integer>();
+        Integer [] arreglo = new Integer[ALista.size()];
+        ALista.add(1);
+        ALista.add(100);
+        ALista.add(4);
+        ALista.add(3);
+        ALista.add(10);
+        ALista.add(7);
+        ALista.add(5);
+        ALista.add(50);
+        arreglo=ALista.toArray(arreglo);
+        
+        System.out.println("Lista desordenada");
+        for(int i=0;i<=ALista.size()-1;i++){
+            System.out.print(ALista.get(i)+",");
+        }
+        shell(arreglo);
+        System.out.println("");
+        System.out.println("Lista Ordenada");
+        for(int i=0; i<arreglo.length; i++){
+            System.out.print(arreglo[i] +",");
+        }
+    }
+    private static void shell(Integer arreglo []){
+       int brecha=arreglo.length/2,aux,salto,i;
+        
+        for(salto=brecha; salto!=0; salto/=2){
+            boolean cambio=true;
+            while(cambio){
+                cambio=false;
+                for(i=salto; i<arreglo.length;i++){
+                    if(arreglo[i-salto]>arreglo[i]){
+                        aux=arreglo[i];
+                        arreglo[i]=arreglo[i-salto];
+                        arreglo[i-salto]=aux;
+                        cambio=true;
+                    }
+                }
+            }
+        }
+    }
+}
